@@ -33,6 +33,11 @@ class TestDataProcessor(unittest.TestCase):
         avg = avgAgeCountry('users.json')
         self.assertEquals(avg,38.648)
 
+    def test_avg_json_convert_in_days(self):
+        avg = avgAgeCountry('users.json', True)
+        self.assertEquals(avg,14106.52)
+
+
     def test_json_vazio(self):
         current_directory = os.path.dirname(__file__)
         file_path = os.path.join(current_directory, "json_vazio.json")

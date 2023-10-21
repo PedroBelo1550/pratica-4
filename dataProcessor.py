@@ -17,9 +17,12 @@ def read_json_file(file_path):
         raise ValueError(f"Invalid JSON format in file: {file_path}")
     
 
-def avgAgeCountry(path):
+def avgAgeCountry(path, convert_days: bool = False):
 
     json = pd.read_json(path)
+
+    if(convert_days):
+        return json['age'].mean() * 365
 
     return json['age'].mean()
 
